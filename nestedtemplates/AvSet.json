@@ -16,6 +16,13 @@
     "updateDomainCount": {
       "type": "int",
       "defaultValue": 5
+    },
+    "ppgId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The ID of the Proximity Placement Group"
+      }
     }
   },
   "variables": {
@@ -24,13 +31,14 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[parameters('avSetName')]",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2019-07-01",
       "location": "[parameters('location')]",
       "properties": {
-
         "platformFaultDomainCount": "[parameters('faultDomainCount')]",
         "platformUpdateDomainCount": "[parameters('UpdateDomainCount')]",
-        "managed": true
+        "proximityPlacementGroup": {
+          "id": "[if(equals(length(parameters('ppgId')), '0'), json('null'), parameters('ppgId'))]"
+        }
       }
     }
   ],
