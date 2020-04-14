@@ -1,0 +1,39 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "name": {
+      "type": "string"
+    },
+    "ipAllocationMethod": {
+      "type": "string",
+      "allowedValues": [
+        "Dynamic",
+        "Static"
+      ]
+    },
+    "domainNameLabel": {
+      "type": "string"
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-09-01",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[parameters('name')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publicIPAllocationMethod": "[parameters('IpAllocationMethod')]",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('domainNameLabel')]"
+        }
+      }
+    }
+  ]
+}
