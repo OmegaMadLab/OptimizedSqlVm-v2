@@ -22,6 +22,14 @@
         "description": "Name of the availability set; it will be created if it doesn't already exist. Leave empty if availability set is not needed"
       }
     },
+    "createAvailabilitySet": {
+      "type": "string",
+      "defaultValue": "No",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ]
+    },
     "adDomain": {
       "type": "string",
       "minLength": 0,
@@ -151,9 +159,6 @@
         "SQL Server 2017 Standard (BYOL) on Windows Server 2016",
         "SQL Server 2017 Web on Windows Server 2016",
         "SQL Server 2017 Express (free) on Windows Server 2016",
-<<<<<<< Updated upstream
-        "SQL Server 2017 Developer (free) on Windows Server 2016"
-=======
         "SQL Server 2017 Developer (free) on Windows Server 2016",
         "SQL Server 2017 Enterprise on Windows Server 2019",
         "SQL Server 2017 Enterprise (BYOL) on Windows Server 2019",
@@ -169,7 +174,6 @@
         "SQL Server 2019 Web on Windows Server 2019",
         "SQL Server 2019 Express (free) on Windows Server 2019",
         "SQL Server 2019 Developer (free) on Windows Server 2019"
->>>>>>> Stashed changes
        ],
        "metadata": {
             "description": "The SQL Server version you want to deploy"
@@ -507,9 +511,6 @@
         "description": "Suffix that will be used to compose additional disk name"
       }
     },
-<<<<<<< Updated upstream
-    "storageSKU": {
-=======
     "workloadType": {
       "type": "string",
       "allowedValues": [
@@ -521,7 +522,6 @@
       }
     },
     "dataDiskStorageSku": {
->>>>>>> Stashed changes
       "type": "string",
       "allowedValues": [
         "Standard_LRS",
@@ -661,10 +661,9 @@
     "virtualNetworkName": "[if(equals(length(parameters('vnetName')), 0), concat(parameters('vmName'),'-Vnet'), parameters('vnetName'))]",
     "vnetID": "[resourceId(variables('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/', toLower(variables('subnetName')))]",
-    "DataDiskCacheSetting": "[if(or(equals(parameters('storageSku'), 'Premium_LRS'),equals(parameters('storageSku'), 'StandardSSD_LRS')), 'ReadOnly', 'None')]",
+    "DataDiskCacheSetting": "[if(or(equals(parameters('dataDiskstorageSku'), 'Premium_LRS'),equals(parameters('dataDiskstorageSku'), 'StandardSSD_LRS')), 'ReadOnly', 'None')]",
     "LogDiskCacheSetting": "None",
     "AdditionalDiskCacheSetting": "None",
-    "OsDiskStorageSku": "StandardSSD_LRS",
     "AdditionalDiskStorageSku": "Standard_LRS",
     "#ofDisks": "[add(add(parameters('#ofDataDisks'), parameters('#ofLogDisks')), parameters('#ofAdditionalDisks'))]",
     "sqlLicense": "[if(contains(parameters('sqlVersion'), 'BYOL'), 'AHUB', 'PAYG')]",
@@ -679,7 +678,7 @@
               "caching": "[if(less(copyIndex('dataDisks'), parameters('#ofDataDisks')), variables('DataDiskCacheSetting'), if(less(copyIndex('dataDisks'), add(parameters('#ofDataDisks'), parameters('#ofLogDisks'))), variables('LogDiskCacheSetting'), variables('AdditionalDiskCacheSetting')))]",
               "createOption": "Empty",
               "managedDisk": {
-                "storageAccountType": "[if(less(copyIndex('dataDisks'), add(parameters('#ofDataDisks'), parameters('#ofLogDisks'))), parameters('storageSKU'), variables('AdditionalDiskStorageSku'))]"
+                "storageAccountType": "[if(less(copyIndex('dataDisks'), parameters('#ofDataDisks')), parameters('dataDiskstorageSku'), if(less(copyIndex('dataDisks'), add(parameters('#ofDataDisks'), parameters('#ofLogDisks'))), parameters('logDiskstorageSku'), variables('AdditionalDiskStorageSku')))]"
               }
           }
       },
@@ -982,20 +981,6 @@
       "SQL Server 2017 Developer (free) on Windows Server 2016": {
         "offer": "SQL2017-WS2016",
         "sku": "SQLDEV"
-<<<<<<< Updated upstream
-      }
-    },
-    "_artifactsLocation": "https://raw.githubusercontent.com/OmegaMadLab/OptimizedSqlVm/wip",
-    "SqlDscConfigArchiveFolder": "DSC",
-    "SqlDscConfigArchiveFileName": "SqlDscConfig.zip",
-    "SqlDscConfigScript": "SqlDscConfig.ps1",
-    "SqlDscConfigFunction": "SqlDscConfig",
-    "SqlIaasOptimizeCsefolder": "CSE",
-    "SqlIaasOptimizeCseScript": "Optimize-SqlIaasVm-CSE.ps1",
-    "SqlIaasOptimizeCseScriptImpersonated": "Optimized-SqlIaasVm-CSE-userImpersonation.ps1",
-    "SqlIaasOptimizeCseModule": "Optimize-SqlIaasVm-CSE.psm1", 
-    "SqlIaasOptimizeCseParameters": "[concat('-NumberOfDataDisks ', parameters('#ofDataDisks'), if(equals(tolower(parameters('stripeDataDisks')), 'yes'), ' -StripeDataDisks', ''), ' -NumberOfLogDisks ', parameters('#ofLogDisks'), if(equals(tolower(parameters('stripeLogDisks')), 'yes'), ' -StripeLogDisks', ''), ' -NumberOfAdditionalDisks ', parameters('#ofAdditionalDisks'), ' -WorkloadType \"', parameters('workloadType'), '\" -SysAdminUsername \"', parameters('adminUsername') , '\" -SysAdminPassword \"', parameters('adminPassword'), '\"')]"
-=======
       },
       "SQL Server 2017 Enterprise on Windows Server 2019": {
         "offer": "SQL2017-WS2019",
@@ -1060,11 +1045,10 @@
     // "SqlIaasOptimizeCseModule": "Optimize-SqlIaasVm-CSE.psm1", 
     // "SqlIaasOptimizeCseParameters": "[concat('-NumberOfDataDisks ', parameters('#ofDataDisks'), if(equals(tolower(parameters('stripeDataDisks')), 'yes'), ' -StripeDataDisks', ''), ' -NumberOfLogDisks ', parameters('#ofLogDisks'), if(equals(tolower(parameters('stripeLogDisks')), 'yes'), ' -StripeLogDisks', ''), ' -NumberOfAdditionalDisks ', parameters('#ofAdditionalDisks'), ' -WorkloadType \"', parameters('workloadType'), '\" -SysAdminUsername \"', parameters('adminUsername') , '\" -SysAdminPassword \"', parameters('adminPassword'), '\"')]",
     "sqlAuthUid": "[parameters('sqlAuthAdmin')]",
-    "sqlAuthPwd": "[if(equals(parameters('sqlAuthAdmin'), ''), '', parameters('sqlAuthAdminPassword'))]",
+    "sqlAuthPwd": "[if(equals(parameters('sqlAuthAdmin'), ''), '', parameters('sqlAuthAdminPassword'))]"
     // "sqlConfigModulesURL": "[concat(parameters('_artifactsLocation'), '/DSC/SqlDscConfig.zip')]",
     // "SqlDscConfigScript": "SqlDscConfig.ps1",
     // "SqlDscConfigFunction": "SqlDscConfig"
->>>>>>> Stashed changes
   },
   "resources": [
     {
@@ -1081,7 +1065,7 @@
         },
         "parameters": {
           "location": {
-            "value": "[parameters('location')]",
+            "value": "[parameters('location')]"
           },
           "vnetName": {
             "value": "[variables('virtualNetworkName')]"
@@ -1112,7 +1096,7 @@
         },
         "parameters": {
           "location": {
-            "value": "[parameters('location')]",
+            "value": "[parameters('location')]"
           },
           "storageAccountName": {
             "value": "[variables('storageAccountName')]"
@@ -1126,13 +1110,8 @@
     {
       "name": "AvSet",
       "type": "Microsoft.Resources/deployments",
-<<<<<<< Updated upstream
-      "apiVersion": "2016-09-01",
-      "condition": "[greater(length(parameters('availabilitySetName')), 0)]",
-=======
       "apiVersion": "2017-05-10",
       "condition": "[and(greater(length(parameters('availabilitySetName')), 0),equals(toLower(parameters('createAvailabilitySet')), 'yes'))]",
->>>>>>> Stashed changes
       "dependsOn": [],
       "properties": {
         "mode": "Incremental",
@@ -1142,7 +1121,7 @@
         },
         "parameters": {
           "location": {
-            "value": "[parameters('location')]",
+            "value": "[parameters('location')]"
           },
           "avSetName": {
             "value": "[parameters('availabilitySetName')]"
@@ -1164,7 +1143,7 @@
         },
         "parameters": {
           "location": {
-            "value": "[parameters('location')]",
+            "value": "[parameters('location')]"
           },
           "name": {
             "value": "[variables('publicIPAddressName')]"
@@ -1246,7 +1225,7 @@
             "createOption": "FromImage",
             "name": "[concat(parameters('vmName'), '-', parameters('OsDiskSuffix'))]",
             "managedDisk": {
-              "storageAccountType": "[variables('OsDiskStorageSku')]"
+              "storageAccountType": "[parameters('OsDiskStorageSku')]"
             }
           },
           "dataDisks": "[variables('dataDisks')]"
@@ -1266,49 +1245,7 @@
         },
         "availabilitySet": "[if(equals(length(parameters('availabilitySetName')), 0), json('null'), json(concat('{\"id\": \"/subscriptions/', subscription().subscriptionId, '/resourceGroups/',toLower(resourceGroup().name), '/providers/Microsoft.Compute/availabilitySets/', toLower(parameters('availabilitySetName')), '\"}')))]"
       },
-<<<<<<< Updated upstream
-      "resources": [
-        {
-          "name": "Microsoft.Powershell.DSC",
-          "type": "extensions",
-          "location": "[resourceGroup().location]",
-          "condition": "[greater(length(parameters('adDomain')), 0)]",
-          "apiVersion": "2018-04-01",
-          "dependsOn": [
-            "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
-          ],
-          "tags": {
-            "displayName": "SqlDscConfig"
-          },
-          "properties": {
-            "publisher": "Microsoft.Powershell",
-            "type": "DSC",
-            "typeHandlerVersion": "2.76",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-              "configuration": {
-                "url": "[concat(variables('_artifactsLocation'), '/', variables('SqlDscConfigArchiveFolder'), '/', variables('SqlDscConfigArchiveFileName'))]",
-                "script": "[variables('SqlDscConfigScript')]",
-                "function": "[variables('SqlDscConfigFunction')]"
-              },
-              "configurationArguments": {
-                "DomainName": "[parameters('adDomain')]"
-              }
-            },
-            "protectedSettings": {
-              "configurationArguments": {
-                "Admincreds": {
-                  "userName": "[parameters('adminUserName')]",
-                  "Password": "[parameters('adminPassword')]"
-                }
-              }
-            }
-          }
-        }
-      ]
-=======
       "resources": []
->>>>>>> Stashed changes
     },
     {
       "type": "Microsoft.SqlVirtualMachine/SqlVirtualMachines",
