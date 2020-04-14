@@ -1125,6 +1125,9 @@
           },
           "avSetName": {
             "value": "[parameters('availabilitySetName')]"
+          },
+          "ppgId": {
+            "value": ""
           }
         }
       }

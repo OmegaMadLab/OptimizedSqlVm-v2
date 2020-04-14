@@ -37,6 +37,9 @@
         "platformFaultDomainCount": "[parameters('faultDomainCount')]",
         "platformUpdateDomainCount": "[parameters('UpdateDomainCount')]",
         "proximityPlacementGroup": "[if(equals(parameters('ppgId'), ''), json('null'), json(concat('{\"id\": \"', parameters('ppgId'), '\"}')))]"
+      },
+      "sku": {
+        "name": "aligned"
       }
     }
   ],
