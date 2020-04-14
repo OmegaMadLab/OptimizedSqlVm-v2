@@ -36,7 +36,9 @@
       "properties": {
         "platformFaultDomainCount": "[parameters('faultDomainCount')]",
         "platformUpdateDomainCount": "[parameters('UpdateDomainCount')]",
-        "proximityPlacementGroup": "[if(equals(length(parameters('ppgId')), '0'), json('null'), json(concat('{\"id\": \"', parameters('ppgId'), '\"}')))]"
+        "proximityPlacementGroup": {
+          "id": "[parameters('ppgId')]"
+        }
       }
     }
   ],
