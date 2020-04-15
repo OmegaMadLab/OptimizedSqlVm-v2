@@ -23,12 +23,54 @@ configuration SqlDscConfig
 
     Node localhost
     {
+        PowershellRepository PSGallery
+        {
+            Name                = "PSGallery"
+            InstallationPolicy  = "Trusted"
+            Ensure              = "Present"
+        }
+
+        PowershellModule DBATools
+        {
+            Name            = "Dbatools"
+            Ensure          = "Present"
+            DependsOn       = "[PowershellRepository]PSGallery" 
+        }
+
+        script 'CustomScript'
+        {
+            PsDscRunAsCredential = $SqlAdministratorCredential
+            GetScript =  { return @{result = 'result'} }
+            TestScript = { return $false }
+            SetScript = {
+                
+                $logFile = "C:\SqlConfig.log"
+
+                # Setting MaxDOP to recommended value
+                Test-DbaMaxDop -SqlInstance $ENV:COMPUTERNAME |
+                    Set-DbaMaxDop |
+                    Out-File -FilePath $LogFile -Append
+
+                # Enabling IFI and lock pages in memory
+                Set-DbaPrivilege -SqlInstance $ENV:COMPUTERNAME `
+                    -Type IFI,LPIM |
+                    Out-File -FilePath $LogFile -Append
+
+                # Setting MaxServerMemory to recommended value
+                Test-DbaMaxMemory -SqlInstance $ENV:COMPUTERNAME |
+                    Set-DbaMaxMemory |
+                    Out-File -FilePath $LogFile -Append
+            }
+            DependsOn = "[PowershellModule]DBATools" 
+        }
+
         if ($DomainName)
         {
             WindowsFeature ADPS
             {
                 Name = "RSAT-AD-PowerShell"
                 Ensure = "Present"
+                DependsOn = "[Script]CustomScript"
             }
 
             xWaitForADDomain DscForestWait 
@@ -69,47 +111,6 @@ configuration SqlDscConfig
                 PsDscRunAsCredential = $SqlAdministratorCredential
                 DependsOn = "[SqlServerLogin]Add_WindowsUser"
             }
-        }
-
-        PowershellRepository PSGallery
-        {
-            Name                = "PSGallery"
-            InstallationPolicy  = "Trusted"
-            Ensure              = "Present"
-        }
-
-        PowershellModule DBATools
-        {
-            Name            = "Dbatools"
-            Ensure          = "Present"
-            DependsOn       = "[PowershellRepository]PSGallery" 
-        }
-
-        script 'CustomScript'
-        {
-            PsDscRunAsCredential = $SqlAdministratorCredential
-            GetScript =  { return @{result = 'result'} }
-            TestScript = { return $false }
-            SetScript = {
-                
-                $logFile = "C:\SqlConfig.log"
-
-                # Setting MaxDOP to recommended value
-                Test-DbaMaxDop -SqlInstance $ENV:COMPUTERNAME |
-                    Set-DbaMaxDop |
-                    Out-File -FilePath $LogFile -Append
-
-                # Enabling IFI and lock pages in memory
-                Set-DbaPrivilege -SqlInstance $ENV:COMPUTERNAME `
-                    -Type IFI,LPIM |
-                    Out-File -FilePath $LogFile -Append
-
-                # Setting MaxServerMemory to recommended value
-                Test-DbaMaxMemory -SqlInstance $ENV:COMPUTERNAME |
-                    Set-DbaMaxMemory |
-                    Out-File -FilePath $LogFile -Append
-            }
-            DependsOn = "[PowershellModule]DBATools" 
         }
 
         LocalConfigurationManager 
