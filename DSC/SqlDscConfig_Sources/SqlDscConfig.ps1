@@ -78,7 +78,7 @@ configuration SqlDscConfig
             Ensure              = "Present"
         }
 
-        PowershellModule PSScriptAnalyzer
+        PowershellModule DBATools
         {
             Name            = "Dbatools"
             Ensure          = "Present"
@@ -109,6 +109,7 @@ configuration SqlDscConfig
                     Set-DbaMaxMemory |
                     Out-File -FilePath $LogFile -Append
             }
+            DependsOn = "[PowershellModule]DBATools" 
         }
 
         LocalConfigurationManager 
