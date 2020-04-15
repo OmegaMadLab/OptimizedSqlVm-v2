@@ -1302,7 +1302,7 @@
       "location": "[parameters('location')]",
       "apiVersion": "2019-07-01",
       "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines/extensions', parameters('vmName'), 'SqlIaasExtension')]"
+        "[resourceId('Microsoft.SqlVirtualMachine/SqlVirtualMachines', parameters('vmName'))]"
       ],
       "tags": {
         "displayName": "SqlDscConfig"

@@ -89,7 +89,7 @@ configuration SqlDscConfig
 
         script 'CustomScript'
         {
-            PsDscRunAsCredential = $SysAdminCreds
+            PsDscRunAsCredential = $SqlAdministratorCredential
             GetScript =  { return @{result = 'result'} }
             TestScript = { return $false }
             SetScript = {
