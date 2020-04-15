@@ -1328,7 +1328,8 @@
                 "AdminCreds": {
                     "userName": "[parameters('adminUserName')]",
                     "Password": "[parameters('adminPassword')]"
-                }
+                },
+                "domainName": "[parameters('adDomain')]"
             }
         }
       }
