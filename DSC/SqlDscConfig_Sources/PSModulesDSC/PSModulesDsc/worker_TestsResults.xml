@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="141" errors="0" failures="0" not-run="0" inconclusive="0" ignored="15" skipped="0" invalid="0" date="2018-10-18" time="17:58:34">
+  <environment user="appveyor" machine-name="APPVYR-WIN" cwd="C:\projects\psmodulesdsc" user-domain="APPVYR-WIN" platform="Microsoft Windows Server 2016 Datacenter|C:\Windows|\Device\Harddisk0\Partition4" nunit-version="2.5.8.0" os-version="10.0.14393" clr-version="4.0.30319.42000" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Ignored" success="True" time="261.4328" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\projects\psmodulesdsc\DscResource.Tests\Meta.Tests.ps1" executed="True" result="Ignored" success="True" time="174.9476" asserts="0" description="C:\projects\psmodulesdsc\DscResource.Tests\Meta.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Common Tests - Relative Path Length" executed="True" result="Success" success="True" time="5.7983" asserts="0" description="Common Tests - Relative Path Length">
+            <results>
+              <test-suite type="TestFixture" name="When the resource should be used to compile a configuration in Azure Automation" executed="True" result="Success" success="True" time="5.7983" asserts="0" description="When the resource should be used to compile a configuration in Azure Automation">
+                <results>
+                  <test-suite type="ParameterizedTest" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path &lt;FullRelativePath&gt; should not exceed the max hard limit" executed="True" result="Success" success="True" time="5.7983" asserts="0" description="The length of the relative full path &lt;FullRelativePath&gt; should not exceed the max hard limit">
+                    <results>
+                      <test-case description="The length of the relative full path \.github should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.github should not exceed the max hard limit" time="4.0451" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \DSCClassResources should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \DSCClassResources should not exceed the max hard limit" time="0.179" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Examples should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Examples should not exceed the max hard limit" time="0.0151" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests should not exceed the max hard limit" time="0.0132" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.codecov.yml should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.codecov.yml should not exceed the max hard limit" time="0.0099" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.gitattributes should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.gitattributes should not exceed the max hard limit" time="0.0104" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.gitignore should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.gitignore should not exceed the max hard limit" time="0.0086" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.MetaTestOptIn.json should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.MetaTestOptIn.json should not exceed the max hard limit" time="0.0077" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \appveyor.yml should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \appveyor.yml should not exceed the max hard limit" time="0.0083" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \CHANGELOG.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \CHANGELOG.md should not exceed the max hard limit" time="0.0168" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \CODE_OF_CONDUCT.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \CODE_OF_CONDUCT.md should not exceed the max hard limit" time="0.0084" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \LICENSE should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \LICENSE should not exceed the max hard limit" time="0.0079" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \PSModulesDsc.psd1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \PSModulesDsc.psd1 should not exceed the max hard limit" time="0.008" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \README.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \README.md should not exceed the max hard limit" time="0.0094" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.github\ISSUE_TEMPLATE should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.github\ISSUE_TEMPLATE should not exceed the max hard limit" time="0.0084" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.github\PULL_REQUEST_TEMPLATE.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.github\PULL_REQUEST_TEMPLATE.md should not exceed the max hard limit" time="0.0082" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.github\ISSUE_TEMPLATE\General.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.github\ISSUE_TEMPLATE\General.md should not exceed the max hard limit" time="0.05" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.github\ISSUE_TEMPLATE\Problem_with_resource.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.github\ISSUE_TEMPLATE\Problem_with_resource.md should not exceed the max hard limit" time="0.2196" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \.github\ISSUE_TEMPLATE\Resource_proposal.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \.github\ISSUE_TEMPLATE\Resource_proposal.md should not exceed the max hard limit" time="0.0814" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \DSCClassResources\PowershellModule should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \DSCClassResources\PowershellModule should not exceed the max hard limit" time="0.0078" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \DSCClassResources\PowershellRepository should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \DSCClassResources\PowershellRepository should not exceed the max hard limit" time="0.0157" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \DSCClassResources\PowershellModule\PowershellModule.psd1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \DSCClassResources\PowershellModule\PowershellModule.psd1 should not exceed the max hard limit" time="0.0087" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \DSCClassResources\PowershellModule\PowershellModule.psm1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \DSCClassResources\PowershellModule\PowershellModule.psm1 should not exceed the max hard limit" time="0.0079" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \DSCClassResources\PowershellRepository\PowershellRepository.psd1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \DSCClassResources\PowershellRepository\PowershellRepository.psd1 should not exceed the max hard limit" time="0.0081" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \DSCClassResources\PowershellRepository\PowershellRepository.psm1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \DSCClassResources\PowershellRepository\PowershellRepository.psm1 should not exceed the max hard limit" time="0.0079" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Examples\Resources should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Examples\Resources should not exceed the max hard limit" time="0.0105" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Examples\README.md should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Examples\README.md should not exceed the max hard limit" time="0.0147" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Examples\Resources\PowershellModule should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Examples\Resources\PowershellModule should not exceed the max hard limit" time="0.0178" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Examples\Resources\PowershellRepository should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Examples\Resources\PowershellRepository should not exceed the max hard limit" time="0.0083" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Examples\Resources\PowershellModule\PowershellModule.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Examples\Resources\PowershellModule\PowershellModule.ps1 should not exceed the max hard limit" time="0.0082" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Examples\Resources\PowershellRepository\PowershellRepository.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Examples\Resources\PowershellRepository\PowershellRepository.ps1 should not exceed the max hard limit" time="0.0102" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Integration should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Integration should not exceed the max hard limit" time="0.0155" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Unit should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Unit should not exceed the max hard limit" time="0.295" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Integration\PowershellModule.config.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Integration\PowershellModule.config.ps1 should not exceed the max hard limit" time="0.0082" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Integration\PowershellModule.Integration.tests.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Integration\PowershellModule.Integration.tests.ps1 should not exceed the max hard limit" time="0.0453" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Integration\PowershellRepository.config.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Integration\PowershellRepository.config.ps1 should not exceed the max hard limit" time="0.4581" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Integration\PowershellRepository.Integration.tests.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Integration\PowershellRepository.Integration.tests.ps1 should not exceed the max hard limit" time="0.1191" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Unit\PowershellModule.tests.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Unit\PowershellModule.tests.ps1 should not exceed the max hard limit" time="0.0083" asserts="0" success="True" result="Success" executed="True" />
+                      <test-case description="The length of the relative full path \Tests\Unit\PowershellRepository.tests.ps1 should not exceed the max hard limit" name="Common Tests - Relative Path Length.When the resource should be used to compile a configuration in Azure Automation.The length of the relative full path \Tests\Unit\PowershellRepository.tests.ps1 should not exceed the max hard limit" time="0.0076" asserts="0" success="True" result="Success" executed="True" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - File Formatting" executed="True" result="Success" success="True" time="1.5902" asserts="0" description="Common Tests - File Formatting">
+            <results>
+              <test-suite type="TestFixture" name="When repository contains markdown files" executed="True" result="Success" success="True" time="0.2747" asserts="0" description="When repository contains markdown files">
+                <results>
+                  <test-case description="Markdown file 'CHANGELOG.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'CHANGELOG.md' should not have Byte Order Mark (BOM)" time="0.0722" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'CODE_OF_CONDUCT.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'CODE_OF_CONDUCT.md' should not have Byte Order Mark (BOM)" time="0.0098" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'README.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'README.md' should not have Byte Order Mark (BOM)" time="0.0168" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file '.github\PULL_REQUEST_TEMPLATE.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file '.github\PULL_REQUEST_TEMPLATE.md' should not have Byte Order Mark (BOM)" time="0.0089" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file '.github\ISSUE_TEMPLATE\General.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file '.github\ISSUE_TEMPLATE\General.md' should not have Byte Order Mark (BOM)" time="0.0083" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file '.github\ISSUE_TEMPLATE\Problem_with_resource.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file '.github\ISSUE_TEMPLATE\Problem_with_resource.md' should not have Byte Order Mark (BOM)" time="0.0081" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file '.github\ISSUE_TEMPLATE\Resource_proposal.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file '.github\ISSUE_TEMPLATE\Resource_proposal.md' should not have Byte Order Mark (BOM)" time="0.0143" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'DscResource.Tests\CHANGELOG.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'DscResource.Tests\CHANGELOG.md' should not have Byte Order Mark (BOM)" time="0.0083" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'DscResource.Tests\README.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'DscResource.Tests\README.md' should not have Byte Order Mark (BOM)" time="0.0082" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'DscResource.Tests\.github\PULL_REQUEST_TEMPLATE.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'DscResource.Tests\.github\PULL_REQUEST_TEMPLATE.md' should not have Byte Order Mark (BOM)" time="0.0373" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'DscResource.Tests\.github\ISSUE_TEMPLATE\General.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'DscResource.Tests\.github\ISSUE_TEMPLATE\General.md' should not have Byte Order Mark (BOM)" time="0.0089" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'DscResource.Tests\.github\ISSUE_TEMPLATE\Problem_with_resource.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'DscResource.Tests\.github\ISSUE_TEMPLATE\Problem_with_resource.md' should not have Byte Order Mark (BOM)" time="0.0086" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Markdown file 'Examples\README.md' should not have Byte Order Mark (BOM)" name="Common Tests - File Formatting.When repository contains markdown files.Markdown file 'Examples\README.md' should not have Byte Order Mark (BOM)" time="0.065" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-case description="Should not contain any files with Unicode file encoding" name="Common Tests - File Formatting.Should not contain any files with Unicode file encoding" time="1.0772" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Should not contain any files with tab characters" name="Common Tests - File Formatting.Should not contain any files with tab characters" time="0.0911" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Should not contain empty files" name="Common Tests - File Formatting.Should not contain empty files" time="0.0823" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Should not contain files without a newline at the end" name="Common Tests - File Formatting.Should not contain files without a newline at the end" time="0.0648" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Validate Script Files" executed="True" result="Success" success="True" time="0.4553" asserts="0" description="Common Tests - Validate Script Files">
+            <results>
+              <test-suite type="TestFixture" name="DscResource.Tests\Meta.Tests.ps1" executed="True" result="Success" success="True" time="0.0761" asserts="0" description="DscResource.Tests\Meta.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Meta.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Meta.Tests.ps1.Script file 'DscResource.Tests\Meta.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0761" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\AppVeyor.Tests.ps1" executed="True" result="Success" success="True" time="0.0239" asserts="0" description="DscResource.Tests\Tests\Unit\AppVeyor.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\AppVeyor.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\AppVeyor.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\AppVeyor.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0239" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Helper.Tests.ps1" executed="True" result="Success" success="True" time="0.0334" asserts="0" description="DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Helper.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Helper.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Helper.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Helper.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0334" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Tests.ps1" executed="True" result="Success" success="True" time="0.0269" asserts="0" description="DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\DscResource.AnalyzerRules.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0269" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\DscResource.Container.Tests.ps1" executed="True" result="Success" success="True" time="0.0301" asserts="0" description="DscResource.Tests\Tests\Unit\DscResource.Container.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\DscResource.Container.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\DscResource.Container.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\DscResource.Container.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0301" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\DscResource.DocumentationHelper.Tests.ps1" executed="True" result="Success" success="True" time="0.0259" asserts="0" description="DscResource.Tests\Tests\Unit\DscResource.DocumentationHelper.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\DscResource.DocumentationHelper.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\DscResource.DocumentationHelper.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\DscResource.DocumentationHelper.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0259" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\DscResource.GalleryDeploy.Tests.ps1" executed="True" result="Success" success="True" time="0.0231" asserts="0" description="DscResource.Tests\Tests\Unit\DscResource.GalleryDeploy.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\DscResource.GalleryDeploy.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\DscResource.GalleryDeploy.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\DscResource.GalleryDeploy.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0231" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\TestHelper.Tests.ps1" executed="True" result="Success" success="True" time="0.0199" asserts="0" description="DscResource.Tests\Tests\Unit\TestHelper.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\TestHelper.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\TestHelper.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\TestHelper.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0199" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\Unit\TestRunner.Tests.ps1" executed="True" result="Success" success="True" time="0.0227" asserts="0" description="DscResource.Tests\Tests\Unit\TestRunner.Tests.ps1">
+                <results>
+                  <test-case description="Script file 'DscResource.Tests\Tests\Unit\TestRunner.Tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.DscResource.Tests\Tests\Unit\TestRunner.Tests.ps1.Script file 'DscResource.Tests\Tests\Unit\TestRunner.Tests.ps1' should not have Byte Order Mark (BOM)" time="0.0227" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Examples\Resources\PowershellModule\PowershellModule.ps1" executed="True" result="Success" success="True" time="0.0197" asserts="0" description="Examples\Resources\PowershellModule\PowershellModule.ps1">
+                <results>
+                  <test-case description="Script file 'Examples\Resources\PowershellModule\PowershellModule.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Examples\Resources\PowershellModule\PowershellModule.ps1.Script file 'Examples\Resources\PowershellModule\PowershellModule.ps1' should not have Byte Order Mark (BOM)" time="0.0197" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Examples\Resources\PowershellRepository\PowershellRepository.ps1" executed="True" result="Success" success="True" time="0.0232" asserts="0" description="Examples\Resources\PowershellRepository\PowershellRepository.ps1">
+                <results>
+                  <test-case description="Script file 'Examples\Resources\PowershellRepository\PowershellRepository.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Examples\Resources\PowershellRepository\PowershellRepository.ps1.Script file 'Examples\Resources\PowershellRepository\PowershellRepository.ps1' should not have Byte Order Mark (BOM)" time="0.0232" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Tests\Integration\PowershellModule.config.ps1" executed="True" result="Success" success="True" time="0.0207" asserts="0" description="Tests\Integration\PowershellModule.config.ps1">
+                <results>
+                  <test-case description="Script file 'Tests\Integration\PowershellModule.config.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Tests\Integration\PowershellModule.config.ps1.Script file 'Tests\Integration\PowershellModule.config.ps1' should not have Byte Order Mark (BOM)" time="0.0207" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Tests\Integration\PowershellModule.Integration.tests.ps1" executed="True" result="Success" success="True" time="0.0238" asserts="0" description="Tests\Integration\PowershellModule.Integration.tests.ps1">
+                <results>
+                  <test-case description="Script file 'Tests\Integration\PowershellModule.Integration.tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Tests\Integration\PowershellModule.Integration.tests.ps1.Script file 'Tests\Integration\PowershellModule.Integration.tests.ps1' should not have Byte Order Mark (BOM)" time="0.0238" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Tests\Integration\PowershellRepository.config.ps1" executed="True" result="Success" success="True" time="0.0198" asserts="0" description="Tests\Integration\PowershellRepository.config.ps1">
+                <results>
+                  <test-case description="Script file 'Tests\Integration\PowershellRepository.config.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Tests\Integration\PowershellRepository.config.ps1.Script file 'Tests\Integration\PowershellRepository.config.ps1' should not have Byte Order Mark (BOM)" time="0.0198" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Tests\Integration\PowershellRepository.Integration.tests.ps1" executed="True" result="Success" success="True" time="0.0231" asserts="0" description="Tests\Integration\PowershellRepository.Integration.tests.ps1">
+                <results>
+                  <test-case description="Script file 'Tests\Integration\PowershellRepository.Integration.tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Tests\Integration\PowershellRepository.Integration.tests.ps1.Script file 'Tests\Integration\PowershellRepository.Integration.tests.ps1' should not have Byte Order Mark (BOM)" time="0.0231" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Tests\Unit\PowershellModule.tests.ps1" executed="True" result="Success" success="True" time="0.0198" asserts="0" description="Tests\Unit\PowershellModule.tests.ps1">
+                <results>
+                  <test-case description="Script file 'Tests\Unit\PowershellModule.tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Tests\Unit\PowershellModule.tests.ps1.Script file 'Tests\Unit\PowershellModule.tests.ps1' should not have Byte Order Mark (BOM)" time="0.0198" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Tests\Unit\PowershellRepository.tests.ps1" executed="True" result="Success" success="True" time="0.0231" asserts="0" description="Tests\Unit\PowershellRepository.tests.ps1">
+                <results>
+                  <test-case description="Script file 'Tests\Unit\PowershellRepository.tests.ps1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Script Files.Tests\Unit\PowershellRepository.tests.ps1.Script file 'Tests\Unit\PowershellRepository.tests.ps1' should not have Byte Order Mark (BOM)" time="0.0231" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - .psm1 File Parsing" executed="True" result="Success" success="True" time="1.6149" asserts="0" description="Common Tests - .psm1 File Parsing">
+            <results>
+              <test-suite type="TestFixture" name="DSCClassResources\PowershellModule\PowershellModule.psm1" executed="True" result="Success" success="True" time="0.3384" asserts="0" description="DSCClassResources\PowershellModule\PowershellModule.psm1">
+                <results>
+                  <test-case description="Module file 'DSCClassResources\PowershellModule\PowershellModule.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DSCClassResources\PowershellModule\PowershellModule.psm1.Module file 'DSCClassResources\PowershellModule\PowershellModule.psm1' should not contain parse errors" time="0.3384" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DSCClassResources\PowershellRepository\PowershellRepository.psm1" executed="True" result="Success" success="True" time="0.1107" asserts="0" description="DSCClassResources\PowershellRepository\PowershellRepository.psm1">
+                <results>
+                  <test-case description="Module file 'DSCClassResources\PowershellRepository\PowershellRepository.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DSCClassResources\PowershellRepository\PowershellRepository.psm1.Module file 'DSCClassResources\PowershellRepository\PowershellRepository.psm1' should not contain parse errors" time="0.1107" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\AppVeyor.psm1" executed="True" result="Success" success="True" time="0.0221" asserts="0" description="DscResource.Tests\AppVeyor.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\AppVeyor.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\AppVeyor.psm1.Module file 'DscResource.Tests\AppVeyor.psm1' should not contain parse errors" time="0.0221" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\MetaFixers.psm1" executed="True" result="Success" success="True" time="0.0215" asserts="0" description="DscResource.Tests\MetaFixers.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\MetaFixers.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\MetaFixers.psm1.Module file 'DscResource.Tests\MetaFixers.psm1' should not contain parse errors" time="0.0215" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\TestHelper.psm1" executed="True" result="Success" success="True" time="0.0326" asserts="0" description="DscResource.Tests\TestHelper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\TestHelper.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\TestHelper.psm1.Module file 'DscResource.Tests\TestHelper.psm1' should not contain parse errors" time="0.0326" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\TestRunner.psm1" executed="True" result="Success" success="True" time="0.0339" asserts="0" description="DscResource.Tests\TestRunner.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\TestRunner.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\TestRunner.psm1.Module file 'DscResource.Tests\TestRunner.psm1' should not contain parse errors" time="0.0339" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1" executed="True" result="Success" success="True" time="0.0255" asserts="0" description="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1.Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1' should not contain parse errors" time="0.0255" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1" executed="True" result="Success" success="True" time="0.0637" asserts="0" description="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1.Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1' should not contain parse errors" time="0.0637" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1" executed="True" result="Success" success="True" time="0.0799" asserts="0" description="DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1.Module file 'DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1' should not contain parse errors" time="0.0799" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.Container\DscResource.Container.psm1" executed="True" result="Success" success="True" time="0.175" asserts="0" description="DscResource.Tests\DscResource.Container\DscResource.Container.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.Container\DscResource.Container.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.Container\DscResource.Container.psm1.Module file 'DscResource.Tests\DscResource.Container\DscResource.Container.psm1' should not contain parse errors" time="0.175" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1" executed="True" result="Success" success="True" time="0.0733" asserts="0" description="DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1.Module file 'DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1' should not contain parse errors" time="0.0733" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1" executed="True" result="Success" success="True" time="0.1561" asserts="0" description="DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1.Module file 'DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1' should not contain parse errors" time="0.1561" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1" executed="True" result="Success" success="True" time="0.1777" asserts="0" description="DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1.Module file 'DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1' should not contain parse errors" time="0.1777" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1" executed="True" result="Success" success="True" time="0.2385" asserts="0" description="DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1.Module file 'DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1' should not contain parse errors" time="0.2385" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1" executed="True" result="Success" success="True" time="0.066" asserts="0" description="DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1' should not contain parse errors" name="Common Tests - .psm1 File Parsing.DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1.Module file 'DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1' should not contain parse errors" time="0.066" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Validate Module Files" executed="True" result="Success" success="True" time="0.8172" asserts="0" description="Common Tests - Validate Module Files">
+            <results>
+              <test-suite type="TestFixture" name="DSCClassResources\PowershellModule\PowershellModule.psm1" executed="True" result="Success" success="True" time="0.4212" asserts="0" description="DSCClassResources\PowershellModule\PowershellModule.psm1">
+                <results>
+                  <test-case description="Module file 'DSCClassResources\PowershellModule\PowershellModule.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DSCClassResources\PowershellModule\PowershellModule.psm1.Module file 'DSCClassResources\PowershellModule\PowershellModule.psm1' should not have Byte Order Mark (BOM)" time="0.4212" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DSCClassResources\PowershellRepository\PowershellRepository.psm1" executed="True" result="Success" success="True" time="0.0282" asserts="0" description="DSCClassResources\PowershellRepository\PowershellRepository.psm1">
+                <results>
+                  <test-case description="Module file 'DSCClassResources\PowershellRepository\PowershellRepository.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DSCClassResources\PowershellRepository\PowershellRepository.psm1.Module file 'DSCClassResources\PowershellRepository\PowershellRepository.psm1' should not have Byte Order Mark (BOM)" time="0.0282" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\AppVeyor.psm1" executed="True" result="Success" success="True" time="0.0223" asserts="0" description="DscResource.Tests\AppVeyor.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\AppVeyor.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\AppVeyor.psm1.Module file 'DscResource.Tests\AppVeyor.psm1' should not have Byte Order Mark (BOM)" time="0.0223" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\MetaFixers.psm1" executed="True" result="Success" success="True" time="0.1088" asserts="0" description="DscResource.Tests\MetaFixers.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\MetaFixers.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\MetaFixers.psm1.Module file 'DscResource.Tests\MetaFixers.psm1' should not have Byte Order Mark (BOM)" time="0.1088" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\TestHelper.psm1" executed="True" result="Success" success="True" time="0.0242" asserts="0" description="DscResource.Tests\TestHelper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\TestHelper.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\TestHelper.psm1.Module file 'DscResource.Tests\TestHelper.psm1' should not have Byte Order Mark (BOM)" time="0.0242" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\TestRunner.psm1" executed="True" result="Success" success="True" time="0.021" asserts="0" description="DscResource.Tests\TestRunner.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\TestRunner.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\TestRunner.psm1.Module file 'DscResource.Tests\TestRunner.psm1' should not have Byte Order Mark (BOM)" time="0.021" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1" executed="True" result="Success" success="True" time="0.0244" asserts="0" description="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1.Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.Helper.psm1' should not have Byte Order Mark (BOM)" time="0.0244" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1" executed="True" result="Success" success="True" time="0.0247" asserts="0" description="DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1.Module file 'DscResource.Tests\DscResource.AnalyzerRules\DscResource.AnalyzerRules.psm1' should not have Byte Order Mark (BOM)" time="0.0247" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1" executed="True" result="Success" success="True" time="0.0231" asserts="0" description="DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1.Module file 'DscResource.Tests\DscResource.CodeCoverage\CodeCovIo.psm1' should not have Byte Order Mark (BOM)" time="0.0231" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.Container\DscResource.Container.psm1" executed="True" result="Success" success="True" time="0.019" asserts="0" description="DscResource.Tests\DscResource.Container\DscResource.Container.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.Container\DscResource.Container.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.Container\DscResource.Container.psm1.Module file 'DscResource.Tests\DscResource.Container\DscResource.Container.psm1' should not have Byte Order Mark (BOM)" time="0.019" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1" executed="True" result="Success" success="True" time="0.0214" asserts="0" description="DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1.Module file 'DscResource.Tests\DscResource.DocumentationHelper\MofHelper.psm1' should not have Byte Order Mark (BOM)" time="0.0214" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1" executed="True" result="Success" success="True" time="0.0206" asserts="0" description="DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1.Module file 'DscResource.Tests\DscResource.DocumentationHelper\PowerShellHelp.psm1' should not have Byte Order Mark (BOM)" time="0.0206" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1" executed="True" result="Success" success="True" time="0.0212" asserts="0" description="DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1.Module file 'DscResource.Tests\DscResource.DocumentationHelper\WikiPages.psm1' should not have Byte Order Mark (BOM)" time="0.0212" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1" executed="True" result="Success" success="True" time="0.0185" asserts="0" description="DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1.Module file 'DscResource.Tests\DscResource.GalleryDeploy\DscResource.GalleryDeploy.psm1' should not have Byte Order Mark (BOM)" time="0.0185" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1" executed="True" result="Success" success="True" time="0.0188" asserts="0" description="DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1">
+                <results>
+                  <test-case description="Module file 'DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1' should not have Byte Order Mark (BOM)" name="Common Tests - Validate Module Files.DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1.Module file 'DscResource.Tests\Tests\TestHelpers\CommonTestHelper.psm1' should not have Byte Order Mark (BOM)" time="0.0188" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Module Manifest" executed="True" result="Success" success="True" time="0.0629" asserts="0" description="Common Tests - Module Manifest">
+            <results>
+              <test-suite type="TestFixture" name="Requirements for manifest of module with class-based resources" executed="True" result="Success" success="True" time="0" asserts="0" description="Requirements for manifest of module with class-based resources">
+                <results />
+              </test-suite>
+              <test-case description="Should contain a PowerShellVersion property of at least 5.0 based on resource types" name="Common Tests - Module Manifest.Should contain a PowerShellVersion property of at least 5.0 based on resource types" time="0.0629" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Script Resource Schema Validation" executed="True" result="Success" success="True" time="0" asserts="0" description="Common Tests - Script Resource Schema Validation">
+            <results />
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - PS Script Analyzer on Resource Files" executed="True" result="Success" success="True" time="0" asserts="0" description="Common Tests - PS Script Analyzer on Resource Files">
+            <results />
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Validate Example Files" executed="True" result="Success" success="True" time="9.8238" asserts="0" description="Common Tests - Validate Example Files">
+            <results>
+              <test-suite type="TestFixture" name="PowershellModule\PowershellModule.ps1" executed="True" result="Success" success="True" time="9.5411" asserts="0" description="PowershellModule\PowershellModule.ps1">
+                <results>
+                  <test-case description="Should compile MOFs for example correctly" name="Common Tests - Validate Example Files.PowershellModule\PowershellModule.ps1.Should compile MOFs for example correctly" time="9.5411" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="PowershellRepository\PowershellRepository.ps1" executed="True" result="Success" success="True" time="0.2827" asserts="0" description="PowershellRepository\PowershellRepository.ps1">
+                <results>
+                  <test-case description="Should compile MOFs for example correctly" name="Common Tests - Validate Example Files.PowershellRepository\PowershellRepository.ps1.Should compile MOFs for example correctly" time="0.2827" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Validate Example Files To Be Published" executed="True" result="Success" success="True" time="0.2934" asserts="0" description="Common Tests - Validate Example Files To Be Published">
+            <results>
+              <test-suite type="TestFixture" name="When there are examples that should be published" executed="True" result="Success" success="True" time="0.2934" asserts="0" description="When there are examples that should be published">
+                <results>
+                  <test-case description="Should not contain any duplicate GUID is script file metadata" name="Common Tests - Validate Example Files To Be Published.When there are examples that should be published.Should not contain any duplicate GUID is script file metadata" time="0.2934" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Validate Markdown Files" executed="True" result="Success" success="True" time="133.3774" asserts="0" description="Common Tests - Validate Markdown Files">
+            <results>
+              <test-suite type="TestFixture" name="When installing markdown validation dependencies" executed="True" result="Success" success="True" time="104.0365" asserts="0" description="When installing markdown validation dependencies">
+                <results>
+                  <test-case description="Should not throw an error when installing package Gulp in global scope" name="Common Tests - Validate Markdown Files.When installing markdown validation dependencies.Should not throw an error when installing package Gulp in global scope" time="66.7285" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when installing package Gulp in local scope" name="Common Tests - Validate Markdown Files.When installing markdown validation dependencies.Should not throw an error when installing package Gulp in local scope" time="20.1042" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when installing package through2" name="Common Tests - Validate Markdown Files.When installing markdown validation dependencies.Should not throw an error when installing package through2" time="5.0504" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when installing package markdownlint" name="Common Tests - Validate Markdown Files.When installing markdown validation dependencies.Should not throw an error when installing package markdownlint" time="6.061" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when installing package gulp-concat as a dev-dependency" name="Common Tests - Validate Markdown Files.When installing markdown validation dependencies.Should not throw an error when installing package gulp-concat as a dev-dependency" time="6.0923" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="When there are markdown files" executed="True" result="Success" success="True" time="5.2919" asserts="0" description="When there are markdown files">
+                <results>
+                  <test-case description="Should not have errors in any markdown files" name="Common Tests - Validate Markdown Files.When there are markdown files.Should not have errors in any markdown files" time="5.2919" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="When uninstalling markdown validation dependencies" executed="True" result="Success" success="True" time="24.049" asserts="0" description="When uninstalling markdown validation dependencies">
+                <results>
+                  <test-case description="Should not throw an error when uninstalling package gulp-concat as a dev-dependency" name="Common Tests - Validate Markdown Files.When uninstalling markdown validation dependencies.Should not throw an error when uninstalling package gulp-concat as a dev-dependency" time="5.0861" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when uninstalling package markdownlint" name="Common Tests - Validate Markdown Files.When uninstalling markdown validation dependencies.Should not throw an error when uninstalling package markdownlint" time="5.0628" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when uninstalling package through2" name="Common Tests - Validate Markdown Files.When uninstalling markdown validation dependencies.Should not throw an error when uninstalling package through2" time="5.0603" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when uninstalling package Gulp in local scope" name="Common Tests - Validate Markdown Files.When uninstalling markdown validation dependencies.Should not throw an error when uninstalling package Gulp in local scope" time="4.0487" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when uninstalling package Gulp in global scope" name="Common Tests - Validate Markdown Files.When uninstalling markdown validation dependencies.Should not throw an error when uninstalling package Gulp in global scope" time="4.0457" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should not throw an error when removing the node_modules folder" name="Common Tests - Validate Markdown Files.When uninstalling markdown validation dependencies.Should not throw an error when removing the node_modules folder" time="0.7454" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Spellcheck Files" executed="True" result="Ignored" success="True" time="20.8829" asserts="0" description="Common Tests - Spellcheck Files">
+            <results>
+              <test-suite type="TestFixture" name="When installing spellcheck dependencies" executed="True" result="Success" success="True" time="16.8038" asserts="0" description="When installing spellcheck dependencies">
+                <results>
+                  <test-case description="Should not throw an error when installing package cSpell in global scope" name="Common Tests - Spellcheck Files.When installing spellcheck dependencies.Should not throw an error when installing package cSpell in global scope" time="16.8038" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="When there are markdown files" executed="True" result="Ignored" success="True" time="0.0254" asserts="0" description="When there are markdown files">
+                <results>
+                  <test-case description="Should not have spelling errors in any markdown files" name="Common Tests - Spellcheck Files.When there are markdown files.Should not have spelling errors in any markdown files" time="0.0254" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="When uninstalling spellcheck dependencies" executed="True" result="Success" success="True" time="4.0537" asserts="0" description="When uninstalling spellcheck dependencies">
+                <results>
+                  <test-case description="Should not throw an error when uninstalling package cSpell in global scope" name="Common Tests - Spellcheck Files.When uninstalling spellcheck dependencies.Should not throw an error when uninstalling package cSpell in global scope" time="4.0537" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Common Tests - Validate Markdown Links" executed="True" result="Ignored" success="True" time="0.2312" asserts="0" description="Common Tests - Validate Markdown Links">
+            <results>
+              <test-suite type="TestFixture" name="When installing markdown link validation dependencies" executed="True" result="Ignored" success="True" time="0.0345" asserts="0" description="When installing markdown link validation dependencies">
+                <results>
+                  <test-case description="Should not throw an error when installing and importing the module MarkdownLinkCheck" name="Common Tests - Validate Markdown Links.When installing markdown link validation dependencies.Should not throw an error when installing and importing the module MarkdownLinkCheck" time="0.0345" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="psmodulesdsc\CHANGELOG.md" executed="True" result="Ignored" success="True" time="0.03" asserts="0" description="psmodulesdsc\CHANGELOG.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.psmodulesdsc\CHANGELOG.md.Should not contain any broken links" time="0.03" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="psmodulesdsc\CODE_OF_CONDUCT.md" executed="True" result="Ignored" success="True" time="0.0155" asserts="0" description="psmodulesdsc\CODE_OF_CONDUCT.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.psmodulesdsc\CODE_OF_CONDUCT.md.Should not contain any broken links" time="0.0155" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="psmodulesdsc\README.md" executed="True" result="Ignored" success="True" time="0.0122" asserts="0" description="psmodulesdsc\README.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.psmodulesdsc\README.md.Should not contain any broken links" time="0.0122" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name=".github\PULL_REQUEST_TEMPLATE.md" executed="True" result="Ignored" success="True" time="0.012" asserts="0" description=".github\PULL_REQUEST_TEMPLATE.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links..github\PULL_REQUEST_TEMPLATE.md.Should not contain any broken links" time="0.012" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="ISSUE_TEMPLATE\General.md" executed="True" result="Ignored" success="True" time="0.0151" asserts="0" description="ISSUE_TEMPLATE\General.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.ISSUE_TEMPLATE\General.md.Should not contain any broken links" time="0.0151" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="ISSUE_TEMPLATE\Problem_with_resource.md" executed="True" result="Ignored" success="True" time="0.0129" asserts="0" description="ISSUE_TEMPLATE\Problem_with_resource.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.ISSUE_TEMPLATE\Problem_with_resource.md.Should not contain any broken links" time="0.0129" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="ISSUE_TEMPLATE\Resource_proposal.md" executed="True" result="Ignored" success="True" time="0.0132" asserts="0" description="ISSUE_TEMPLATE\Resource_proposal.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.ISSUE_TEMPLATE\Resource_proposal.md.Should not contain any broken links" time="0.0132" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\CHANGELOG.md" executed="True" result="Ignored" success="True" time="0.0162" asserts="0" description="DscResource.Tests\CHANGELOG.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.DscResource.Tests\CHANGELOG.md.Should not contain any broken links" time="0.0162" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DscResource.Tests\README.md" executed="True" result="Ignored" success="True" time="0.0134" asserts="0" description="DscResource.Tests\README.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.DscResource.Tests\README.md.Should not contain any broken links" time="0.0134" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name=".github\PULL_REQUEST_TEMPLATE.md" executed="True" result="Ignored" success="True" time="0.0149" asserts="0" description=".github\PULL_REQUEST_TEMPLATE.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links..github\PULL_REQUEST_TEMPLATE.md.Should not contain any broken links" time="0.0149" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="ISSUE_TEMPLATE\General.md" executed="True" result="Ignored" success="True" time="0.0151" asserts="0" description="ISSUE_TEMPLATE\General.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.ISSUE_TEMPLATE\General.md.Should not contain any broken links" time="0.0151" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="ISSUE_TEMPLATE\Problem_with_resource.md" executed="True" result="Ignored" success="True" time="0.0128" asserts="0" description="ISSUE_TEMPLATE\Problem_with_resource.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.ISSUE_TEMPLATE\Problem_with_resource.md.Should not contain any broken links" time="0.0128" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Examples\README.md" executed="True" result="Ignored" success="True" time="0.0134" asserts="0" description="Examples\README.md">
+                <results>
+                  <test-case description="Should not contain any broken links" name="Common Tests - Validate Markdown Links.Examples\README.md.Should not contain any broken links" time="0.0134" asserts="0" success="True" result="Ignored" executed="False" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\projects\psmodulesdsc\Tests\Integration\PowershellModule.Integration.tests.ps1" executed="True" result="Success" success="True" time="65.5873" asserts="0" description="C:\projects\psmodulesdsc\Tests\Integration\PowershellModule.Integration.tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="PowershellModule_Integration" executed="True" result="Success" success="True" time="65.5873" asserts="0" description="PowershellModule_Integration">
+            <results>
+              <test-suite type="TestFixture" name="When using configuration PowershellModule_InstallModule_Config" executed="True" result="Success" success="True" time="37.1625" asserts="0" description="When using configuration PowershellModule_InstallModule_Config">
+                <results>
+                  <test-case description="Should compile and apply the MOF without throwing" name="PowershellModule_Integration.When using configuration PowershellModule_InstallModule_Config.Should compile and apply the MOF without throwing" time="36.7452" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should be able to call Get-DscConfiguration without throwing" name="PowershellModule_Integration.When using configuration PowershellModule_InstallModule_Config.Should be able to call Get-DscConfiguration without throwing" time="0.2366" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have set the resource and all the parameters should match" name="PowershellModule_Integration.When using configuration PowershellModule_InstallModule_Config.Should have set the resource and all the parameters should match" time="0.0287" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return $true when Test-DscConfiguration is run" name="PowershellModule_Integration.When using configuration PowershellModule_InstallModule_Config.Should return $true when Test-DscConfiguration is run" time="0.1521" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="When using configuration PowershellModule_RemoveModule_Config" executed="True" result="Success" success="True" time="28.4247" asserts="0" description="When using configuration PowershellModule_RemoveModule_Config">
+                <results>
+                  <test-case description="Should compile and apply the MOF without throwing" name="PowershellModule_Integration.When using configuration PowershellModule_RemoveModule_Config.Should compile and apply the MOF without throwing" time="28.15" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should be able to call Get-DscConfiguration without throwing" name="PowershellModule_Integration.When using configuration PowershellModule_RemoveModule_Config.Should be able to call Get-DscConfiguration without throwing" time="0.1168" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have set the resource and all the parameters should match" name="PowershellModule_Integration.When using configuration PowershellModule_RemoveModule_Config.Should have set the resource and all the parameters should match" time="0.0095" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return $true when Test-DscConfiguration is run" name="PowershellModule_Integration.When using configuration PowershellModule_RemoveModule_Config.Should return $true when Test-DscConfiguration is run" time="0.1484" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\projects\psmodulesdsc\Tests\Integration\PowershellRepository.Integration.tests.ps1" executed="True" result="Success" success="True" time="20.898" asserts="0" description="C:\projects\psmodulesdsc\Tests\Integration\PowershellRepository.Integration.tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="PowershellRepository_Integration" executed="True" result="Success" success="True" time="20.898" asserts="0" description="PowershellRepository_Integration">
+            <results>
+              <test-suite type="TestFixture" name="When using configuration PowershellRepository_SetRepository_Config" executed="True" result="Success" success="True" time="9.5745" asserts="0" description="When using configuration PowershellRepository_SetRepository_Config">
+                <results>
+                  <test-case description="Should compile and apply the MOF without throwing" name="PowershellRepository_Integration.When using configuration PowershellRepository_SetRepository_Config.Should compile and apply the MOF without throwing" time="8.2372" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should be able to call Get-DscConfiguration without throwing" name="PowershellRepository_Integration.When using configuration PowershellRepository_SetRepository_Config.Should be able to call Get-DscConfiguration without throwing" time="0.6556" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have set the resource and all the parameters should match" name="PowershellRepository_Integration.When using configuration PowershellRepository_SetRepository_Config.Should have set the resource and all the parameters should match" time="0.0151" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return $true when Test-DscConfiguration is run" name="PowershellRepository_Integration.When using configuration PowershellRepository_SetRepository_Config.Should return $true when Test-DscConfiguration is run" time="0.6666" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="When using configuration PowershellRepository_AddRepository_Config" executed="True" result="Success" success="True" time="7.9727" asserts="0" description="When using configuration PowershellRepository_AddRepository_Config">
+                <results>
+                  <test-case description="Should compile and apply the MOF without throwing" name="PowershellRepository_Integration.When using configuration PowershellRepository_AddRepository_Config.Should compile and apply the MOF without throwing" time="6.613" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should be able to call Get-DscConfiguration without throwing" name="PowershellRepository_Integration.When using configuration PowershellRepository_AddRepository_Config.Should be able to call Get-DscConfiguration without throwing" time="0.6478" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have set the resource and all the parameters should match" name="PowershellRepository_Integration.When using configuration PowershellRepository_AddRepository_Config.Should have set the resource and all the parameters should match" time="0.0167" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return $true when Test-DscConfiguration is run" name="PowershellRepository_Integration.When using configuration PowershellRepository_AddRepository_Config.Should return $true when Test-DscConfiguration is run" time="0.6952" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="When using configuration PowershellRepository_RemoveRepository_Config" executed="True" result="Success" success="True" time="3.3508" asserts="0" description="When using configuration PowershellRepository_RemoveRepository_Config">
+                <results>
+                  <test-case description="Should compile and apply the MOF without throwing" name="PowershellRepository_Integration.When using configuration PowershellRepository_RemoveRepository_Config.Should compile and apply the MOF without throwing" time="2.1361" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should be able to call Get-DscConfiguration without throwing" name="PowershellRepository_Integration.When using configuration PowershellRepository_RemoveRepository_Config.Should be able to call Get-DscConfiguration without throwing" time="0.6098" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have set the resource and all the parameters should match" name="PowershellRepository_Integration.When using configuration PowershellRepository_RemoveRepository_Config.Should have set the resource and all the parameters should match" time="0.0103" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should return $true when Test-DscConfiguration is run" name="PowershellRepository_Integration.When using configuration PowershellRepository_RemoveRepository_Config.Should return $true when Test-DscConfiguration is run" time="0.5945" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

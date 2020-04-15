@@ -631,6 +631,13 @@
         "Description": "SQL Authentication syadmin password. Evaluated only if sqlAuthAdmin parameter is populated"
       }
     },
+    "maxDop": {
+      "type": "string",
+      "defaultValue": "auto",
+      "metadata": {
+        "Description": "The value of MaxDOP assigned to the SQL instance. Leave auto to determine the best value as per SQL best practices, otherwise specify the desired value (0, 1, etc.)"
+      }
+    },
     "diagStorageAccountName": {
       "type": "string",
       "minLength": 0,
@@ -1045,10 +1052,10 @@
     // "SqlIaasOptimizeCseModule": "Optimize-SqlIaasVm-CSE.psm1", 
     // "SqlIaasOptimizeCseParameters": "[concat('-NumberOfDataDisks ', parameters('#ofDataDisks'), if(equals(tolower(parameters('stripeDataDisks')), 'yes'), ' -StripeDataDisks', ''), ' -NumberOfLogDisks ', parameters('#ofLogDisks'), if(equals(tolower(parameters('stripeLogDisks')), 'yes'), ' -StripeLogDisks', ''), ' -NumberOfAdditionalDisks ', parameters('#ofAdditionalDisks'), ' -WorkloadType \"', parameters('workloadType'), '\" -SysAdminUsername \"', parameters('adminUsername') , '\" -SysAdminPassword \"', parameters('adminPassword'), '\"')]",
     "sqlAuthUid": "[parameters('sqlAuthAdmin')]",
-    "sqlAuthPwd": "[if(equals(parameters('sqlAuthAdmin'), ''), '', parameters('sqlAuthAdminPassword'))]"
-    // "sqlConfigModulesURL": "[concat(parameters('_artifactsLocation'), '/DSC/SqlDscConfig.zip')]",
-    // "SqlDscConfigScript": "SqlDscConfig.ps1",
-    // "SqlDscConfigFunction": "SqlDscConfig"
+    "sqlAuthPwd": "[if(equals(parameters('sqlAuthAdmin'), ''), '', parameters('sqlAuthAdminPassword'))]",
+    "sqlConfigModulesURL": "[concat(parameters('_artifactsLocation'), '/DSC/SqlDscConfig.zip')]",
+    "SqlDscConfigScript": "SqlDscConfig.ps1",
+    "SqlDscConfigFunction": "SqlDscConfig"
   },
   "resources": [
     {
@@ -1288,42 +1295,43 @@
             }
           }
       }
-    }//,
-    // {
-    //   "type": "Microsoft.Compute/virtualMachines/extensions",
-    //   "name": "[concat(parameters('vmName'), '/OmegaMadLabSqlDscExtension')]",
-    //   "location": "[parameters('location')]",
-    //   "apiVersion": "2019-03-01",
-    //   "dependsOn": [
-    //     "[resourceId('Microsoft.Compute/virtualMachines/extensions', parameters('vmName'), 'SqlIaasExtension')]"
-    //   ],
-    //   "tags": {
-    //     "displayName": "SqlDscConfig"
-    //   },
-    //   "properties": {
-    //     "publisher": "Microsoft.Powershell",
-    //     "type": "DSC",
-    //     "typeHandlerVersion": "2.76",
-    //     "autoUpgradeMinorVersion": false,
-    //     "settings": {
-    //         "configuration": {
-    //             "url": "[variables('sqlConfigModulesURL')]",
-    //             "script": "[variables('SqlDscConfigScript')]",
-    //             "function": "[variables('SqlDscConfigFunction')]"
-    //         },
-    //         "configurationArguments": {
-    //             "MaxDop": "[parameters('maxDop')]"
-    //         }
-    //     },
-    //     "protectedSettings": {
-    //         "configurationArguments": {
-    //             "AdminCreds": {
-    //                 "userName": "[parameters('adminUserName')]",
-    //                 "Password": "[parameters('adminPassword')]"
-    //             }
-    //         }
-    //     }
-    //   }
-    // }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('vmName'), '/OmegaMadLabSqlDscExtension')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2019-07-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines/extensions', parameters('vmName'), 'SqlIaasExtension')]"
+      ],
+      "tags": {
+        "displayName": "SqlDscConfig"
+      },
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.76",
+        "autoUpgradeMinorVersion": false,
+        "settings": {
+            "configuration": {
+                "url": "[variables('sqlConfigModulesURL')]",
+                "script": "[variables('SqlDscConfigScript')]",
+                "function": "[variables('SqlDscConfigFunction')]"
+            }
+            // },
+            // "configurationArguments": {
+            //     "MaxDop": "[parameters('maxDop')]"
+            // }
+        },
+        "protectedSettings": {
+            "configurationArguments": {
+                "AdminCreds": {
+                    "userName": "[parameters('adminUserName')]",
+                    "Password": "[parameters('adminPassword')]"
+                }
+            }
+        }
+      }
+    }
   ]
 } 
