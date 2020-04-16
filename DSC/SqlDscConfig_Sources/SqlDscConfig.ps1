@@ -119,26 +119,29 @@ configuration SqlDscConfig
                 DependsOn = "[xWaitForADDomain]DscForestWait"
             }
 
-            SqlServerLogin Add_WindowsUser
-            {
-                Ensure               = 'Present'
-                Name                 = "$DomainNetbiosName\$($AdminCreds.UserName)"
-                LoginType            = 'WindowsUser'
-                ServerName           = $env:COMPUTERNAME
-                InstanceName         = 'MSSQLSERVER'
-                PsDscRunAsCredential = $SqlAdministratorCredential
-                DependsOn = "[xComputer]DomainJoin"
-            }
+            if (-not $prepareForFCI) {
+                
+                SqlServerLogin Add_WindowsUser
+                {
+                    Ensure               = 'Present'
+                    Name                 = "$DomainNetbiosName\$($AdminCreds.UserName)"
+                    LoginType            = 'WindowsUser'
+                    ServerName           = $env:COMPUTERNAME
+                    InstanceName         = 'MSSQLSERVER'
+                    PsDscRunAsCredential = $SqlAdministratorCredential
+                    DependsOn = "[xComputer]DomainJoin"
+                }
 
-            SqlServerRole Add_ServerRole_SysAdmin
-            {
-                Ensure               = 'Present'
-                ServerRoleName       = 'sysadmin'
-                MembersToInclude     = "$DomainNetbiosName\$($AdminCreds.UserName)"
-                ServerName           = $env:COMPUTERNAME
-                InstanceName         = 'MSSQLSERVER'
-                PsDscRunAsCredential = $SqlAdministratorCredential
-                DependsOn = "[SqlServerLogin]Add_WindowsUser"
+                SqlServerRole Add_ServerRole_SysAdmin
+                {
+                    Ensure               = 'Present'
+                    ServerRoleName       = 'sysadmin'
+                    MembersToInclude     = "$DomainNetbiosName\$($AdminCreds.UserName)"
+                    ServerName           = $env:COMPUTERNAME
+                    InstanceName         = 'MSSQLSERVER'
+                    PsDscRunAsCredential = $SqlAdministratorCredential
+                    DependsOn = "[SqlServerLogin]Add_WindowsUser"
+                }
             }
         }
 
