@@ -1339,7 +1339,7 @@
 
             },
             "configurationArguments": {
-                "prepareForFCI": "[if(equals(toLower(parameters('prepareForFCI')),'yes'), '$true', '$false')]"
+                "prepareForFCI": "[if(equals(toLower(parameters('prepareForFCI')),'yes'), bool('true'), bool('false'))]"
             }
         },
         "protectedSettings": {

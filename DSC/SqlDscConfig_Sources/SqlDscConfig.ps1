@@ -45,7 +45,7 @@ configuration SqlDscConfig
 
         if ($prepareForFCI) {
 
-            script 'UninstallSqlInstance'
+            script 'CustomScript'
             {
                 PsDscRunAsCredential = $SqlAdministratorCredential
                 GetScript       = { return @{result = 'result'} }
@@ -63,7 +63,7 @@ configuration SqlDscConfig
 
         } else {
 
-            script 'CustomScriptSqlConfig'
+            script 'CustomScript'
             {
                 DependsOn       = "[PackageManagement]PSModuleDbaTools"
                 PsDscRunAsCredential = $SqlAdministratorCredential
@@ -99,7 +99,7 @@ configuration SqlDscConfig
             {
                 Name = "RSAT-AD-PowerShell"
                 Ensure = "Present"
-                DependsOn = "[Script]CustomScriptSqlConfig"
+                DependsOn = "[Script]CustomScript"
             }
 
             xWaitForADDomain DscForestWait 
