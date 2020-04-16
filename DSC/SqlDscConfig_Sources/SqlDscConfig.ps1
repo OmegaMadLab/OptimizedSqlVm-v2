@@ -9,11 +9,13 @@ configuration SqlDscConfig
 
         [String]$DomainNetbiosName=(Get-NetBIOSName -DomainName $DomainName),
 
+        [Bool]$prepareForFCI=$false,
+
         [Int]$RetryCount=20,
         [Int]$RetryIntervalSec=30
     )
 
-    Import-DscResource -ModuleName xComputerManagement, xActiveDirectory, PSDesiredStateConfiguration, SqlServerDsc
+    Import-DscResource -ModuleName xComputerManagement, xActiveDirectory, PSDesiredStateConfiguration, SqlServerDsc, PackageManagement
     [System.Management.Automation.PSCredential]$SqlAdministratorCredential = New-Object System.Management.Automation.PSCredential ("$env:COMPUTERNAME\$($Admincreds.UserName)", $Admincreds.Password)
 
     if ($DomainName)
@@ -23,55 +25,72 @@ configuration SqlDscConfig
 
     Node localhost
     {
-        script 'CustomScript'
+        PackageManagementSource PSGallery
         {
-            PsDscRunAsCredential = $SqlAdministratorCredential
-            GetScript =  { return @{result = 'result'} }
-            TestScript = { return $false }
-            SetScript = {
-                
-                $logFile = "C:\SqlConfig.log"
+            Ensure      = "Present"
+            Name        = "PSGallery"
+            ProviderName= "PowerShellGet"
+            SourceLocation   = "https://www.powershellgallery.com/api/v2"
+            InstallationPolicy ="Trusted"
+        }
 
-                # Installing DbaTools module
-                if (-not (Get-PackageProvider | Where-Object { $_.Name -eq "NuGet" -and $_.Version -ge "2.8.5.201" }))
-                {
-                    Install-PackageProvider -Name NuGet `
-                        -Scope AllUsers `
-                        -MinimumVersion 2.8.5.201 `
-                        -Force `
-                        -Verbose |
+        PackageManagement PSModuleDbaTools
+        {
+            Ensure               = "Present"
+            Name                 = "DbaTools"
+            Source               = "PSGallery"
+            DependsOn            = "[PackageManagementSource]PSGallery"
+        }
+    
+
+        if ($prepareForFCI) {
+
+            script 'UninstallSqlInstance'
+            {
+                PsDscRunAsCredential = $SqlAdministratorCredential
+                GetScript       = { return @{result = 'result'} }
+                TestScript      = { return $false }
+                SetScript       = {
+                    
+                    $logFile = "C:\SqlConfig.log"
+
+                    # Remove default instance
+                    Set-Location -Path "C:\SQLServerFull"
+                    .\Setup.exe /Action=Uninstall /FEATURES=SQL /INSTANCENAME=MSSQLSERVER /Q |
                         Out-File -FilePath $LogFile -Append
                 }
-
-                If (-not (Get-Module -Name "DBATools" -ListAvailable)) {
-                    Install-Module -Name "DBATools" `
-                        -SkipPublisherCheck `
-                        -Force `
-                        -Verbose |
-                        Out-File -FilePath $LogFile -Append
-                } else {
-                    Update-Module -Name "DBATools" `
-                        -Force `
-                        -Verbose | 
-                        Out-File -FilePath $LogFile -Append
-                }
-
-                # Setting MaxDOP to recommended value
-                Test-DbaMaxDop -SqlInstance $ENV:COMPUTERNAME |
-                    Set-DbaMaxDop |
-                    Out-File -FilePath $LogFile -Append
-                
-                # Setting MaxServerMemory to recommended value
-                Test-DbaMaxMemory -SqlInstance $ENV:COMPUTERNAME -Verbose |
-                    Set-DbaMaxMemory -Verbose |
-                    Out-File -FilePath $LogFile -Append
-
-                # Enabling IFI and lock pages in memory
-                Set-DbaPrivilege -ComputerName $ENV:COMPUTERNAME `
-                    -Type IFI,LPIM `
-                    -Verbose |
-                    Out-File -FilePath $LogFile -Append
             }
+
+        } else {
+
+            script 'CustomScriptSqlConfig'
+            {
+                DependsOn       = "[PackageManagement]PSModuleDbaTools"
+                PsDscRunAsCredential = $SqlAdministratorCredential
+                GetScript       =  { return @{result = 'result'} }
+                TestScript      = { return $false }
+                SetScript       = {
+                    
+                    $logFile = "C:\SqlConfig.log"
+
+                    # Setting MaxDOP to recommended value
+                    Test-DbaMaxDop -SqlInstance $ENV:COMPUTERNAME |
+                        Set-DbaMaxDop |
+                        Out-File -FilePath $LogFile -Append
+                    
+                    # Setting MaxServerMemory to recommended value
+                    Test-DbaMaxMemory -SqlInstance $ENV:COMPUTERNAME -Verbose |
+                        Set-DbaMaxMemory -Verbose |
+                        Out-File -FilePath $LogFile -Append
+
+                    # Enabling IFI and lock pages in memory
+                    Set-DbaPrivilege -ComputerName $ENV:COMPUTERNAME `
+                        -Type IFI,LPIM `
+                        -Verbose |
+                        Out-File -FilePath $LogFile -Append
+                }
+            }
+
         }
 
         if ($DomainName)
@@ -80,7 +99,7 @@ configuration SqlDscConfig
             {
                 Name = "RSAT-AD-PowerShell"
                 Ensure = "Present"
-                DependsOn = "[Script]CustomScript"
+                DependsOn = "[Script]CustomScriptSqlConfig"
             }
 
             xWaitForADDomain DscForestWait 

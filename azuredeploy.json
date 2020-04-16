@@ -631,11 +631,27 @@
         "Description": "SQL Authentication syadmin password. Evaluated only if sqlAuthAdmin parameter is populated"
       }
     },
-    "maxDop": {
+    "sqlRpInstallMode": {
       "type": "string",
-      "defaultValue": "auto",
+      "defaultValue": "Full",
+      "allowedValues": [
+        "Full",
+        "LightWeight",
+        "NoAgent"
+      ],
       "metadata": {
-        "Description": "The value of MaxDOP assigned to the SQL instance. Leave auto to determine the best value as per SQL best practices, otherwise specify the desired value (0, 1, etc.)"
+        "Description": "SQL VM Resource Provider installation mode. If prepareForFCI parameter is set to YES, this parameter is ignored and SQL VM RP mode is automatically set to LightWeight"
+      }
+    },
+    "prepareForFCI": {
+      "type": "string",
+      "defaultValue": "No",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "metadata": {
+        "Description": "Set to Yes if this VM will be part of a SQL Failover Cluster Instance. This will remove default SQL instance and install Failover Cluster related Windows features."
       }
     },
     "diagStorageAccountName": {
@@ -1055,7 +1071,30 @@
     "sqlAuthPwd": "[if(equals(parameters('sqlAuthAdmin'), ''), '', parameters('sqlAuthAdminPassword'))]",
     "sqlConfigModulesURL": "[concat(parameters('_artifactsLocation'), '/DSC/SqlDscConfig.zip')]",
     "SqlDscConfigScript": "SqlDscConfig.ps1",
-    "SqlDscConfigFunction": "SqlDscConfig"
+    "SqlDscConfigFunction": "SqlDscConfig",
+    "sqlRpInstallMode": "[if(equals(toLower(parameters('prepareForFCI')), 'yes'), 'LightWeight', parameters('sqlRpInstallMode'))]",
+    "rpStorageConfigurationSettings": {
+      "DiskConfigurationType": "NEW",
+      "StorageWorkloadType": "[parameters('workloadType')]", 
+      "SQLDataSettings": {
+          "LUNs": "[array(range(0 ,parameters('#ofDataDisks')))]",
+          "DefaultFilePath": "[parameters('dataFilePath')]"
+      },
+      "SQLLogSettings": {
+          "Luns": "[array(range(parameters('#ofDataDisks'), parameters('#ofLogDisks')))]",
+          "DefaultFilePath": "[parameters('logFilePath')]"
+      },
+      "SQLTempDbSettings": {
+          "DefaultFilePath": "[parameters('tempFilePath')]"
+      }
+    },
+    "rpServerConfigurationsManagementSettings": {
+      "sqlConnectivityUpdateSettings": {
+        "port": "[parameters('sqlTcpPort')]",
+        "sqlAuthUpdateUserName": "[variables('sqlAuthUid')]",
+        "sqlAuthUpdatePassword": "[variables('sqlAuthPwd')]"
+      }
+    }
   },
   "resources": [
     {
@@ -1266,34 +1305,14 @@
           "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
       ],
       "tags": {
-        "displayName": "SQLVM"
+        "displayName": "SQLVMRP"
       },
       "properties": {
           "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]",
-          "sqlManagement": "Full",
+          "sqlManagement": "[variables('sqlRpInstallMode')]",
           "SqlServerLicenseType": "[variables('sqlLicense')]",
-          "StorageConfigurationSettings": {
-              "DiskConfigurationType": "NEW",
-              "StorageWorkloadType": "[parameters('workloadType')]",
-              "SQLDataSettings": {
-                  "LUNs": "[array(range(0 ,parameters('#ofDataDisks')))]",
-                  "DefaultFilePath": "[parameters('dataFilePath')]"
-              },
-              "SQLLogSettings": {
-                  "Luns": "[array(range(parameters('#ofDataDisks'), parameters('#ofLogDisks')))]",
-                  "DefaultFilePath": "[parameters('logFilePath')]"
-              },
-              "SQLTempDbSettings": {
-                  "DefaultFilePath": "[parameters('tempFilePath')]"
-              }
-          },
-          "serverConfigurationsManagementSettings": {
-            "sqlConnectivityUpdateSettings": {
-              "port": "[parameters('sqlTcpPort')]",
-              "sqlAuthUpdateUserName": "[variables('sqlAuthUid')]",
-              "sqlAuthUpdatePassword": "[variables('sqlAuthPwd')]"
-            }
-          }
+          "StorageConfigurationSettings": "[if(equals(variables('sqlRpInstallMode'),'Full'), variables('rpStorageConfigurationSettings'), json('null'))]",
+          "serverConfigurationsManagementSettings": "[if(equals(variables('sqlRpInstallMode'),'Full'), variables('rpServerConfigurationsManagementSettings'), json('null'))]"
       }
     },
     {
@@ -1317,11 +1336,11 @@
                 "url": "[variables('sqlConfigModulesURL')]",
                 "script": "[variables('SqlDscConfigScript')]",
                 "function": "[variables('SqlDscConfigFunction')]"
+
+            },
+            "configurationArguments": {
+                "prepareForFCI": "[if(equals(toLower(parameters('prepareForFCI')),'yes'), '$true', '$false')]"
             }
-            // },
-            // "configurationArguments": {
-            //     "MaxDop": "[parameters('maxDop')]"
-            // }
         },
         "protectedSettings": {
             "configurationArguments": {
