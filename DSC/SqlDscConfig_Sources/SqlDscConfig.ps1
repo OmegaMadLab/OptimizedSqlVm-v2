@@ -60,16 +60,16 @@ configuration SqlDscConfig
                 Test-DbaMaxDop -SqlInstance $ENV:COMPUTERNAME |
                     Set-DbaMaxDop |
                     Out-File -FilePath $LogFile -Append
-
-                # Enabling IFI and lock pages in memory
-                Set-DbaPrivilege -SqlInstance $ENV:COMPUTERNAME `
-                    -Type IFI,LPIM `
-                    -Verbose |
-                    Out-File -FilePath $LogFile -Append
-
+                
                 # Setting MaxServerMemory to recommended value
                 Test-DbaMaxMemory -SqlInstance $ENV:COMPUTERNAME -Verbose |
                     Set-DbaMaxMemory -Verbose |
+                    Out-File -FilePath $LogFile -Append
+
+                # Enabling IFI and lock pages in memory
+                Set-DbaPrivilege -ComputerName $ENV:COMPUTERNAME `
+                    -Type IFI,LPIM `
+                    -Verbose |
                     Out-File -FilePath $LogFile -Append
             }
         }
