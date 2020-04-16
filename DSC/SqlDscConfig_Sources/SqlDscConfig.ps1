@@ -13,7 +13,7 @@ configuration SqlDscConfig
         [Int]$RetryIntervalSec=30
     )
 
-    Import-DscResource -ModuleName xComputerManagement, xActiveDirectory, PSDesiredStateConfiguration, SqlServerDsc, PSModulesDsc
+    Import-DscResource -ModuleName xComputerManagement, xActiveDirectory, PSDesiredStateConfiguration, SqlServerDsc
     [System.Management.Automation.PSCredential]$SqlAdministratorCredential = New-Object System.Management.Automation.PSCredential ("$env:COMPUTERNAME\$($Admincreds.UserName)", $Admincreds.Password)
 
     if ($DomainName)
@@ -23,21 +23,6 @@ configuration SqlDscConfig
 
     Node localhost
     {
-        PowershellRepository PSGallery
-        {
-            Name                = "PSGallery"
-            InstallationPolicy  = "Trusted"
-            SourceLocation      = "https://www.powershellgallery.com/api/v2"
-            Ensure              = "Present"
-        }
-
-        PowershellModule DBATools
-        {
-            Name            = "Dbatools"
-            Ensure          = "Present"
-            DependsOn       = "[PowershellRepository]PSGallery" 
-        }
-
         script 'CustomScript'
         {
             PsDscRunAsCredential = $SqlAdministratorCredential
@@ -47,6 +32,30 @@ configuration SqlDscConfig
                 
                 $logFile = "C:\SqlConfig.log"
 
+                # Installing DbaTools module
+                if (-not (Get-PackageProvider | Where-Object { $_.Name -eq "NuGet" -and $_.Version -ge "2.8.5.201" }))
+                {
+                    Install-PackageProvider -Name NuGet `
+                        -Scope AllUsers `
+                        -MinimumVersion 2.8.5.201 `
+                        -Force `
+                        -Verbose |
+                        Out-File -FilePath $LogFile -Append
+                }
+
+                If (-not (Get-Module -Name "DBATools" -ListAvailable)) {
+                    Install-Module -Name "DBATools" `
+                        -SkipPublisherCheck `
+                        -Force `
+                        -Verbose |
+                        Out-File -FilePath $LogFile -Append
+                } else {
+                    Update-Module -Name "DBATools" `
+                        -Force `
+                        -Verbose | 
+                        Out-File -FilePath $LogFile -Append
+                }
+
                 # Setting MaxDOP to recommended value
                 Test-DbaMaxDop -SqlInstance $ENV:COMPUTERNAME |
                     Set-DbaMaxDop |
@@ -54,15 +63,15 @@ configuration SqlDscConfig
 
                 # Enabling IFI and lock pages in memory
                 Set-DbaPrivilege -SqlInstance $ENV:COMPUTERNAME `
-                    -Type IFI,LPIM |
+                    -Type IFI,LPIM `
+                    -Verbose |
                     Out-File -FilePath $LogFile -Append
 
                 # Setting MaxServerMemory to recommended value
-                Test-DbaMaxMemory -SqlInstance $ENV:COMPUTERNAME |
-                    Set-DbaMaxMemory |
+                Test-DbaMaxMemory -SqlInstance $ENV:COMPUTERNAME -Verbose |
+                    Set-DbaMaxMemory -Verbose |
                     Out-File -FilePath $LogFile -Append
             }
-            DependsOn = "[PowershellModule]DBATools" 
         }
 
         if ($DomainName)
