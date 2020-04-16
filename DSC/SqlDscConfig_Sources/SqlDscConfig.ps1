@@ -27,6 +27,7 @@ configuration SqlDscConfig
         {
             Name                = "PSGallery"
             InstallationPolicy  = "Trusted"
+            SourceLocation      = "https://www.powershellgallery.com/api/v2"
             Ensure              = "Present"
         }
 
