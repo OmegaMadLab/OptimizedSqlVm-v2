@@ -27,11 +27,11 @@ configuration SqlDscConfig
     {
         PackageManagementSource PSGallery
         {
-            Ensure      = "Present"
-            Name        = "PSGallery"
-            ProviderName= "PowerShellGet"
-            SourceLocation   = "https://www.powershellgallery.com/api/v2"
-            InstallationPolicy ="Trusted"
+            Ensure              = "Present"
+            Name                = "PSGallery"
+            ProviderName        = "PowerShellGet"
+            SourceLocation      = "https://www.powershellgallery.com/api/v2"
+            InstallationPolicy  = "Trusted"
         }
 
         PackageManagement PSModuleDbaTools
@@ -61,15 +61,22 @@ configuration SqlDscConfig
                 }
             }
 
+            WindowsFeature 'FailoverCluster'
+            {
+                Name                 = 'Failover-Clustering'
+                Ensure               = 'Present'
+                IncludeAllSubFeature = $true 
+            }
+
         } else {
 
             script 'CustomScript'
             {
-                DependsOn       = "[PackageManagement]PSModuleDbaTools"
+                DependsOn            = "[PackageManagement]PSModuleDbaTools"
                 PsDscRunAsCredential = $SqlAdministratorCredential
-                GetScript       =  { return @{result = 'result'} }
-                TestScript      = { return $false }
-                SetScript       = {
+                GetScript            =  { return @{result = 'result'} }
+                TestScript           = { return $false }
+                SetScript            = {
                     
                     $logFile = "C:\SqlConfig.log"
 
@@ -97,30 +104,30 @@ configuration SqlDscConfig
         {
             WindowsFeature ADPS
             {
-                Name = "RSAT-AD-PowerShell"
-                Ensure = "Present"
-                DependsOn = "[Script]CustomScript"
+                Name        = "RSAT-AD-PowerShell"
+                Ensure      = "Present"
+                DependsOn   = "[Script]CustomScript"
             }
 
             xWaitForADDomain DscForestWait 
             { 
-                DomainName = $DomainName 
-                DomainUserCredential= $DomainCreds
-                RetryCount = $RetryCount 
-                RetryIntervalSec = $RetryIntervalSec 
-                DependsOn = "[WindowsFeature]ADPS"
+                DomainName           = $DomainName 
+                DomainUserCredential = $DomainCreds
+                RetryCount           = $RetryCount 
+                RetryIntervalSec     = $RetryIntervalSec 
+                DependsOn            = "[WindowsFeature]ADPS"
             }
             
             xComputer DomainJoin
             {
-                Name = $env:COMPUTERNAME
-                DomainName = $DomainName
-                Credential = $DomainCreds
-                DependsOn = "[xWaitForADDomain]DscForestWait"
+                Name        = $env:COMPUTERNAME
+                DomainName  = $DomainName
+                Credential  = $DomainCreds
+                DependsOn   = "[xWaitForADDomain]DscForestWait"
             }
 
             if (-not $prepareForFCI) {
-                
+
                 SqlServerLogin Add_WindowsUser
                 {
                     Ensure               = 'Present'
@@ -129,7 +136,7 @@ configuration SqlDscConfig
                     ServerName           = $env:COMPUTERNAME
                     InstanceName         = 'MSSQLSERVER'
                     PsDscRunAsCredential = $SqlAdministratorCredential
-                    DependsOn = "[xComputer]DomainJoin"
+                    DependsOn            = "[xComputer]DomainJoin"
                 }
 
                 SqlServerRole Add_ServerRole_SysAdmin
@@ -140,7 +147,7 @@ configuration SqlDscConfig
                     ServerName           = $env:COMPUTERNAME
                     InstanceName         = 'MSSQLSERVER'
                     PsDscRunAsCredential = $SqlAdministratorCredential
-                    DependsOn = "[SqlServerLogin]Add_WindowsUser"
+                    DependsOn            = "[SqlServerLogin]Add_WindowsUser"
                 }
             }
         }
