@@ -68,6 +68,13 @@ configuration SqlDscConfig
                 IncludeAllSubFeature = $true 
             }
 
+            WindowsFeature 'Rsat-Cluster'
+            {
+                Name                 = 'RSAT-Clustering'
+                Ensure               = 'Present'
+                IncludeAllSubFeature = $true 
+            }
+            
         } else {
 
             script 'CustomScript'
