@@ -56,7 +56,7 @@ configuration SqlDscConfig
 
                     # Remove default instance
                     Set-Location -Path "C:\SQLServerFull"
-                    .\Setup.exe /Action=Uninstall /FEATURES=SQL /INSTANCENAME=MSSQLSERVER /Q |
+                    .\Setup.exe /Action=Uninstall /FEATURES=SQL,AS /INSTANCENAME=MSSQLSERVER /Q |
                         Out-File -FilePath $LogFile -Append
                 }
             }
