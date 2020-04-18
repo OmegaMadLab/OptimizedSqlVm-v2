@@ -9,8 +9,6 @@ configuration SqlDscConfig
 
         [String]$DomainNetbiosName=(Get-NetBIOSName -DomainName $DomainName),
 
-        [Parameter(Mandatory)]
-        [ValidatedSet("No","AG","FCI")]
         [String]$prepareForHA="No",
 
         [Int]$RetryCount=20,
