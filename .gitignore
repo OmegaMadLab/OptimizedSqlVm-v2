@@ -1,0 +1,3 @@
+azuredeploy.parameters.*
+OptimizedSqlVm.code-workspace
+test.ps1

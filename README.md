@@ -1,1 +1,0 @@
-# OptimizedSqlVm-v2

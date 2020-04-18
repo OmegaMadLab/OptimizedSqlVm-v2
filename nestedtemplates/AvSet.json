@@ -1,0 +1,48 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "avSetName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "faultDomainCount": {
+      "type": "int",
+      "defaultValue": 3
+    },
+    "updateDomainCount": {
+      "type": "int",
+      "defaultValue": 5
+    },
+    "ppgId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The ID of the Proximity Placement Group"
+      }
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "name": "[parameters('avSetName')]",
+      "apiVersion": "2019-07-01",
+      "location": "[parameters('location')]",
+      "properties": {
+        "platformFaultDomainCount": "[parameters('faultDomainCount')]",
+        "platformUpdateDomainCount": "[parameters('UpdateDomainCount')]",
+        "proximityPlacementGroup": "[if(equals(parameters('ppgId'), ''), json('null'), json(concat('{\"id\": \"', parameters('ppgId'), '\"}')))]"
+      },
+      "sku": {
+        "name": "aligned"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
