@@ -643,12 +643,13 @@
         "Description": "SQL VM Resource Provider installation mode. If prepareForFCI parameter is set to YES, this parameter is ignored and SQL VM RP mode is automatically set to LightWeight"
       }
     },
-    "prepareForFCI": {
+    "prepareForHA": {
       "type": "string",
       "defaultValue": "No",
       "allowedValues": [
-        "Yes",
-        "No"
+        "No",
+        "AG",
+        "FCI"
       ],
       "metadata": {
         "Description": "Set to Yes if this VM will be part of a SQL Failover Cluster Instance. This will remove default SQL instance and install Failover Cluster related Windows features."
@@ -1334,7 +1335,7 @@
 
             },
             "configurationArguments": {
-                "prepareForFCI": "[if(equals(toLower(parameters('prepareForFCI')),'yes'), bool('true'), bool('false'))]"
+                "prepareForHA": "[parameters('prepareForHA')]"
             }
         },
         "protectedSettings": {

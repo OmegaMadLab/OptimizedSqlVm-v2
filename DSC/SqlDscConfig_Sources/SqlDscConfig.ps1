@@ -9,7 +9,8 @@ configuration SqlDscConfig
 
         [String]$DomainNetbiosName=(Get-NetBIOSName -DomainName $DomainName),
 
-        [Bool]$prepareForFCI=$false,
+        [ValidatedSet("No","AG","FCI")]
+        [String]$prepareForHA="No",
 
         [Int]$RetryCount=20,
         [Int]$RetryIntervalSec=30
@@ -43,7 +44,7 @@ configuration SqlDscConfig
         }
     
 
-        if ($prepareForFCI) {
+        if ($prepareForHA -eq 'FCI') {
 
             script 'CustomScript'
             {
@@ -61,20 +62,6 @@ configuration SqlDscConfig
                 }
             }
 
-            WindowsFeature 'FailoverCluster'
-            {
-                Name                 = 'Failover-Clustering'
-                Ensure               = 'Present'
-                IncludeAllSubFeature = $true 
-            }
-
-            WindowsFeature 'Rsat-Cluster'
-            {
-                Name                 = 'RSAT-Clustering'
-                Ensure               = 'Present'
-                IncludeAllSubFeature = $true 
-            }
-            
         } else {
 
             script 'CustomScript'
@@ -107,6 +94,22 @@ configuration SqlDscConfig
 
         }
 
+        if($prepareForHA -ne "No") {
+            WindowsFeature 'FailoverCluster'
+            {
+                Name                 = 'Failover-Clustering'
+                Ensure               = 'Present'
+                IncludeAllSubFeature = $true 
+            }
+
+            WindowsFeature 'Rsat-Cluster'
+            {
+                Name                 = 'RSAT-Clustering'
+                Ensure               = 'Present'
+                IncludeAllSubFeature = $true 
+            }
+        }
+
         if ($DomainName)
         {
             WindowsFeature ADPS
@@ -133,7 +136,7 @@ configuration SqlDscConfig
                 DependsOn   = "[xWaitForADDomain]DscForestWait"
             }
 
-            if (-not $prepareForFCI) {
+            if ($prepareForHA -ne "FCI") {
 
                 SqlServerLogin Add_WindowsUser
                 {
