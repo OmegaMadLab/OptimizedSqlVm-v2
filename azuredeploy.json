@@ -1068,7 +1068,7 @@
     "sqlConfigModulesURL": "[concat(parameters('_artifactsLocation'), '/DSC/SqlDscConfig.zip')]",
     "SqlDscConfigScript": "SqlDscConfig.ps1",
     "SqlDscConfigFunction": "SqlDscConfig",
-    "sqlRpInstallMode": "[if(equals(toLower(parameters('prepareForFCI')), 'yes'), 'LightWeight', parameters('sqlRpInstallMode'))]",
+    "sqlRpInstallMode": "[if(equals(toLower(parameters('prepareForHA')), 'FCI'), 'LightWeight', parameters('sqlRpInstallMode'))]",
     "rpStorageConfigurationSettings": {
       "DiskConfigurationType": "NEW",
       "StorageWorkloadType": "[parameters('workloadType')]", 
