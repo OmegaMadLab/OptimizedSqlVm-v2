@@ -640,7 +640,7 @@
         "NoAgent"
       ],
       "metadata": {
-        "Description": "SQL VM Resource Provider installation mode. If prepareForFCI parameter is set to YES, this parameter is ignored and SQL VM RP mode is automatically set to LightWeight"
+        "Description": "SQL VM Resource Provider installation mode. If prepareForHA parameter is set to FCI, this parameter is ignored and SQL VM RP mode is automatically set to LightWeight"
       }
     },
     "prepareForHA": {
