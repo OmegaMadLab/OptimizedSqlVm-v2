@@ -62,7 +62,7 @@
     },
     "vnetResourceGroup": {
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "[resourceGroup().name]",
       "metadata": {
         "description": "If using an existing vnet, specify the name of resource group which contains it. Otherwise, leave it empty"
       }
