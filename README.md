@@ -4,11 +4,12 @@
 
 This template allows you to deploy a Windows VM with SQL Server on Azure IaaS, following best practices explained on the [official documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-This is an evolution of my [previous template](https://github.com/OmegaMadLab/OptimizedSqlVm), and leverage on the SQL Server Resource Provider to manage the majority of tasks that was previously governed by a Custom Script Extension.
+It's an evolution of my [previous template](https://github.com/OmegaMadLab/OptimizedSqlVm). By leveraging the SQL Server Resource Provider, it manages the majority of the tasks that I previously governed via a Custom Script Extension.
 The SQL Server Resource Provider provides:
 
 - SQL-optimized storage configuration
-- the placement of databases
+- the placement of databases  
+
 A DSC resource will execute domain join and some other tasks, if requested. More optimization will be delivered in the future, to reproduce all the settings I was applying in my previous template.
 
 The template isn't yet tested on all the possible scenarios, please report me any issue.
